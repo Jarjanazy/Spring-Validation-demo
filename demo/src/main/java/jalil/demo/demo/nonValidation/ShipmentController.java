@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class ShipmentController {
     @PostMapping("/shipment/add")
@@ -22,8 +24,11 @@ public class ShipmentController {
     }
 
     private boolean allComponentsAreValid(ShipmentDTO shipmentDTO) {
-        return shipmentDTO.
-                getShipmentComponentDTOs().
+        List<ShipmentComponentDTO> shipmentComponentDTOs = shipmentDTO.getShipmentComponentDTOs();
+
+        return shipmentComponentDTOs != null &&
+                shipmentComponentDTOs.size() > 0 &&
+                shipmentComponentDTOs.
                 stream().
                 allMatch(shipmentComponentDTO -> shipmentComponentDTO.getProductCode() != null);
     }
