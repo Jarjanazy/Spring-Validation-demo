@@ -1,15 +1,19 @@
 package jalil.demo.demo.validation;
 
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
 import javax.validation.constraints.NotBlank;
 
-@RequiredArgsConstructor @Getter
-public class ShipmentComponentDTO {
-    @NotBlank(message = "Component product code can't be null")
-    private final String productCode;
+import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
 
-    public ShipmentComponentDTO() {
-        this.productCode = "";
-    }
+@Value
+@Builder
+@RequiredArgsConstructor
+@NoArgsConstructor(force = true, access = AccessLevel.PRIVATE)
+public class ShipmentComponentDTO {
+  @NotBlank(message = "Component product code can't be null")
+  String productCode;
+
 }

@@ -1,17 +1,18 @@
-package jalil.demo.demo;
+package jalil.demo.demo.nonvalidation;
 
-import jalil.demo.demo.nonValidation.ShipmentController;
-import jalil.demo.demo.nonValidation.ShipmentDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+
+import jalil.demo.demo.nonvalidation.ShipmentController;
+import jalil.demo.demo.nonvalidation.ShipmentDTO;
 
 import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
-public class ManualChecksTest {
+public class ShipmentControllerTest {
 
     @Test
     public void detectProductCodeIsInvalid(){
