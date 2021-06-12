@@ -35,8 +35,7 @@
 		<dependency>
 			<groupId>org.hibernate.validator</groupId>
 			<artifactId>hibernate-validator</artifactId>
-			<version>6.0.13.Final</version>
-		</dependency>
+			</dependency>
 	</dependencies>
 
 	<build>
@@ -53,6 +52,18 @@
 					</excludes>
 				</configuration>
 			</plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <configuration>
+          <useFile>false</useFile>
+          <includes>
+            <include>**/*TestIT.java</include>
+          </includes>
+          <!-- Let's put failsafe reports with surefire to have access to tests failures/success reports in sonar -->
+          <reportsDirectory>${project.build.directory}/surefire-reports</reportsDirectory>
+        </configuration>
+      </plugin>
 		</plugins>
 	</build>
 

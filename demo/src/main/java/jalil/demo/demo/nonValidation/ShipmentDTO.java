@@ -1,13 +1,16 @@
-package jalil.demo.demo.nonValidation;
-
-import lombok.Getter;
-import lombok.RequiredArgsConstructor;
+package jalil.demo.demo.nonvalidation;
 
 import java.util.List;
 
-@RequiredArgsConstructor @Getter
+import lombok.Builder;
+import lombok.RequiredArgsConstructor;
+import lombok.Value;
+
+@Value
+@Builder
+@RequiredArgsConstructor
 public class ShipmentDTO {
-    private final String productCode;
-    private final int count;
-    private final List<ShipmentComponentDTO> shipmentComponentDTOs;
+  String productCode;
+  int count;
+  List<ShipmentComponentDTO> shipmentComponents;
 }
